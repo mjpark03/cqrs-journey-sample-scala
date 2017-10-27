@@ -23,4 +23,17 @@ class Order {
 
   var state: Int = _
 
+  def markAsBooked = {
+    if (state != Created)
+      throw new IllegalStateException
+
+    state = Booked
+  }
+
+  def reject = {
+    if (state != Created)
+      throw new IllegalStateException
+
+    state = Rejected
+  }
 }
